@@ -1,0 +1,33 @@
+syntax = "proto3";
+package pb;
+option go_package = "internal/infra/grpc/pb";
+
+message CreateOrderRequest {
+  string id = 1;
+  float price = 2;
+  float tax = 3;
+}
+
+message OrderByIdRequest {
+  string id = 1;  
+}
+
+message OrderResponse {
+  string id = 1;
+  float price = 2;
+  float tax = 3;
+  float final_price = 4;
+}
+
+message OrderListResponse {
+	repeated OrderResponse itens = 1;
+}
+
+message BlankRequest { }
+
+service OrderService {
+  rpc CreateOrder(CreateOrderRequest) returns (OrderResponse) {}
+  rpc DeleteOrder(OrderByIdRequest) returns (OrderResponse) {}
+  rpc GetOrderById(OrderByIdRequest) returns (OrderResponse) {}
+  rpc GetOrders(BlankRequest) returns (OrderListResponse) {}
+}
