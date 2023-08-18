@@ -74,7 +74,7 @@ evans -r repl
 
 ## Tecnologias implementadas:
 
-. go 1.20
+.go 1.20
  - Router [chi](https://github.com/go-chi/chi)
  - database/sql (mysql)
  - DI (wire)
