@@ -13,16 +13,16 @@ Documentação do [graphQL](https://gqlgen.com/)<br/>
 Comando para gerar o 'graphQL' quando alterar ou adicionar uma nova Query ou Mutation:<br/>
 go run github.com/99designs/gqlgen generate
 
-mutation createOrder {
-  createOrder(input: {
-	id: "e807d0ab-0e8a-49e1-b819-f3b77767a117",
-	Price: 10.0,
-	Tax: 1.0
-  }) {
-    id
-	Price
-	Tax
-  }
+mutation createOrder {<br/>
+  createOrder(input: {<br/>
+	id: "e807d0ab-0e8a-49e1-b819-f3b77767a117",<br/>
+	Price: 10.0,<br/>
+	Tax: 1.0<br/>
+  }) {<br/>
+    id<br/>
+	Price<br/>
+	Tax<br/>
+  }<br/>
 }
 
 mutation updateOrder {
@@ -61,8 +61,8 @@ Executar o comando 'wire' dentro da pasta onde está o arquivo para resolver as 
 
 grpc:
 
-Documentação [grpc](https://grpc.io/docs/languages/go/quickstart/)<br/>
-Caso queira baixar os binários do [protoc](https://github.com/protocolbuffers/protobuf/releases)<br/>
+Documentação [grpc](https://grpc.io/docs/languages/go/quickstart/).<br/>
+Caso queira baixar os binários do [protoc](https://github.com/protocolbuffers/protobuf/releases).<br/>
 Documentação [evans](https://github.com/ktr0731/evans).<br/>
 
 Execute o comando abaixo para gerar os arquivos 'grpc' a partir do '.proto':<br/>
