@@ -13,16 +13,17 @@ Documentação do [graphQL](https://gqlgen.com/)<br/>
 Comando para gerar o 'graphQL' quando alterar ou adicionar uma nova Query ou Mutation:<br/>
 go run github.com/99designs/gqlgen generate
 
-mutation createOrder {<br/>
-  createOrder(input: {<br/>
-	id: "e807d0ab-0e8a-49e1-b819-f3b77767a117",<br/>
-	Price: 10.0,<br/>
-	Tax: 1.0<br/>
-  }) {<br/>
-    id<br/>
-	Price<br/>
-	Tax<br/>
-  }<br/>
+```
+mutation createOrder {  
+  createOrder(input: {  
+	id: "e807d0ab-0e8a-49e1-b819-f3b77767a117",  
+	Price: 10.0,  
+	Tax: 1.0  
+  }) {  
+    id  
+	Price  
+	Tax  
+  }  
 }
 
 mutation updateOrder {
@@ -53,6 +54,7 @@ query queyCourses {
 		FinalPrice
 	}
 }
+```
 
 wire:
 
@@ -72,7 +74,7 @@ evans -r repl
 
 ## Tecnologias implementadas:
 
-- go 1.20
+. go 1.20
  - Router [chi](https://github.com/go-chi/chi)
  - database/sql (mysql)
  - DI (wire)
