@@ -5,12 +5,12 @@ Se vc gostou do projeto clean-arch, por favor dêe uma estrela
 Execute do docker-compose para subir o mysql e o rabbitmq:
 docker-compose up -d
 
-Para rodar o projeto execute no prompt de comando na pasta raiz do projeto:<br/>
+Para rodar o projeto execute no prompt de comando na pasta raiz do projeto:  
 go run ./cmd/ordersystem/main.go ./cmd/ordersystem/wire_gen.go
 
 graphQL:
-Documentação do [graphQL](https://gqlgen.com/)<br/>
-Comando para gerar o 'graphQL' quando alterar ou adicionar uma nova Query ou Mutation:<br/>
+Documentação do [graphQL](https://gqlgen.com/)  
+Comando para gerar o 'graphQL' quando alterar ou adicionar uma nova Query ou Mutation:  
 go run github.com/99designs/gqlgen generate
 
 ```
@@ -58,18 +58,18 @@ query queyCourses {
 
 wire:
 
-Documentação [wire](https://github.com/google/wire).<br/>
-Executar o comando 'wire' dentro da pasta onde está o arquivo para resolver as dependências.<br/>
+Documentação [wire](https://github.com/google/wire).  
+Executar o comando 'wire' dentro da pasta onde está o arquivo para resolver as dependências.  
 
 grpc:
 
-Documentação [grpc](https://grpc.io/docs/languages/go/quickstart/).<br/>
-Caso queira baixar os binários do [protoc](https://github.com/protocolbuffers/protobuf/releases).<br/>
-Documentação [evans](https://github.com/ktr0731/evans).<br/>
+Documentação [grpc](https://grpc.io/docs/languages/go/quickstart/).  
+Caso queira baixar os binários do [protoc](https://github.com/protocolbuffers/protobuf/releases).  
+Documentação [evans](https://github.com/ktr0731/evans).  
 
-Execute o comando abaixo para gerar os arquivos 'grpc' a partir do '.proto':<br/>
-protoc --go_out=. --go-grpc_out=. internal/infra/grpc/protofiles/order.proto<br/>
-Executar o 'evans' para testar grpc:<br/>
+Execute o comando abaixo para gerar os arquivos 'grpc' a partir do '.proto':  
+protoc --go_out=. --go-grpc_out=. internal/infra/grpc/protofiles/order.proto  
+Executar o 'evans' para testar grpc:  
 evans -r repl
 
 ## Tecnologias implementadas:
