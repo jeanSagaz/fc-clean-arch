@@ -25,7 +25,7 @@ type OrderServiceClient interface {
 	CreateOrder(ctx context.Context, in *CreateOrderRequest, opts ...grpc.CallOption) (*OrderResponse, error)
 	DeleteOrder(ctx context.Context, in *OrderByIdRequest, opts ...grpc.CallOption) (*OrderResponse, error)
 	GetOrderById(ctx context.Context, in *OrderByIdRequest, opts ...grpc.CallOption) (*OrderResponse, error)
-	GetOrders(ctx context.Context, in *BlankRequest, opts ...grpc.CallOption) (*OrderListResponse, error)
+	ListOrders(ctx context.Context, in *BlankRequest, opts ...grpc.CallOption) (*OrderListResponse, error)
 }
 
 type orderServiceClient struct {
@@ -63,9 +63,9 @@ func (c *orderServiceClient) GetOrderById(ctx context.Context, in *OrderByIdRequ
 	return out, nil
 }
 
-func (c *orderServiceClient) GetOrders(ctx context.Context, in *BlankRequest, opts ...grpc.CallOption) (*OrderListResponse, error) {
+func (c *orderServiceClient) ListOrders(ctx context.Context, in *BlankRequest, opts ...grpc.CallOption) (*OrderListResponse, error) {
 	out := new(OrderListResponse)
-	err := c.cc.Invoke(ctx, "/pb.OrderService/GetOrders", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/pb.OrderService/ListOrders", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +79,7 @@ type OrderServiceServer interface {
 	CreateOrder(context.Context, *CreateOrderRequest) (*OrderResponse, error)
 	DeleteOrder(context.Context, *OrderByIdRequest) (*OrderResponse, error)
 	GetOrderById(context.Context, *OrderByIdRequest) (*OrderResponse, error)
-	GetOrders(context.Context, *BlankRequest) (*OrderListResponse, error)
+	ListOrders(context.Context, *BlankRequest) (*OrderListResponse, error)
 	mustEmbedUnimplementedOrderServiceServer()
 }
 
@@ -96,8 +96,8 @@ func (UnimplementedOrderServiceServer) DeleteOrder(context.Context, *OrderByIdRe
 func (UnimplementedOrderServiceServer) GetOrderById(context.Context, *OrderByIdRequest) (*OrderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOrderById not implemented")
 }
-func (UnimplementedOrderServiceServer) GetOrders(context.Context, *BlankRequest) (*OrderListResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetOrders not implemented")
+func (UnimplementedOrderServiceServer) ListOrders(context.Context, *BlankRequest) (*OrderListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListOrders not implemented")
 }
 func (UnimplementedOrderServiceServer) mustEmbedUnimplementedOrderServiceServer() {}
 
@@ -166,20 +166,20 @@ func _OrderService_GetOrderById_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OrderService_GetOrders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _OrderService_ListOrders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BlankRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OrderServiceServer).GetOrders(ctx, in)
+		return srv.(OrderServiceServer).ListOrders(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/pb.OrderService/GetOrders",
+		FullMethod: "/pb.OrderService/ListOrders",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OrderServiceServer).GetOrders(ctx, req.(*BlankRequest))
+		return srv.(OrderServiceServer).ListOrders(ctx, req.(*BlankRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -204,8 +204,8 @@ var OrderService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _OrderService_GetOrderById_Handler,
 		},
 		{
-			MethodName: "GetOrders",
-			Handler:    _OrderService_GetOrders_Handler,
+			MethodName: "ListOrders",
+			Handler:    _OrderService_ListOrders_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -46,7 +46,7 @@ mutation deleteOrder {
   }
 }
 
-query queyCourses {
+query listOrders {
 	orders {
 		id
 		Price

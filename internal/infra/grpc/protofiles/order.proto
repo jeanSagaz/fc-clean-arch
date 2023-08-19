@@ -29,5 +29,5 @@ service OrderService {
   rpc CreateOrder(CreateOrderRequest) returns (OrderResponse) {}
   rpc DeleteOrder(OrderByIdRequest) returns (OrderResponse) {}
   rpc GetOrderById(OrderByIdRequest) returns (OrderResponse) {}
-  rpc GetOrders(BlankRequest) returns (OrderListResponse) {}
+  rpc ListOrders(BlankRequest) returns (OrderListResponse) {}
 }

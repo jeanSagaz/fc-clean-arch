@@ -81,7 +81,7 @@ func (s *OrderService) GetOrderById(ctx context.Context, in *pb.OrderByIdRequest
 	}, nil
 }
 
-func (s *OrderService) GetOrders(context.Context, *pb.BlankRequest) (*pb.OrderListResponse, error) {
+func (s *OrderService) ListOrders(context.Context, *pb.BlankRequest) (*pb.OrderListResponse, error) {
 	orders, err := s.ListOrdersUseCase.GetOrders()
 	if err != nil {
 		return nil, err
