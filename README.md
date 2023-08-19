@@ -54,6 +54,16 @@ query listOrders {
 		FinalPrice
 	}
 }
+
+query getOrder {
+  order(id: "46ba908b-3cdb-49af-883d-ba68cd20e269")
+  {
+		id
+		Price
+		Tax
+		FinalPrice
+  }
+}
 ```
 
 wire:

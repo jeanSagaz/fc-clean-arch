@@ -12,7 +12,7 @@ import (
 )
 
 // CreateOrder is the resolver for the createOrder field.
-func (r *mutationResolver) CreateOrder(ctx context.Context, input *model.OrderInput) (*model.Order, error) {
+func (r *mutationResolver) CreateOrder(ctx context.Context, input model.OrderInput) (*model.Order, error) {
 	dto := usecase.OrderInputDTO{
 		ID:    input.ID,
 		Price: float64(input.Price),
@@ -32,7 +32,7 @@ func (r *mutationResolver) CreateOrder(ctx context.Context, input *model.OrderIn
 }
 
 // UpdateOrder is the resolver for the updateOrder field.
-func (r *mutationResolver) UpdateOrder(ctx context.Context, input *model.OrderInput) (*model.Order, error) {
+func (r *mutationResolver) UpdateOrder(ctx context.Context, input model.OrderInput) (*model.Order, error) {
 	_, err := r.GetOrderUseCase.GetOrderById(input.ID)
 	if err != nil {
 		return nil, err
@@ -57,34 +57,34 @@ func (r *mutationResolver) UpdateOrder(ctx context.Context, input *model.OrderIn
 }
 
 // DeleteOrder is the resolver for the deleteOrder field.
-func (r *mutationResolver) DeleteOrder(ctx context.Context, id *string) (*model.Order, error) {
-	_, err := r.GetOrderUseCase.GetOrderById(*id)
+func (r *mutationResolver) DeleteOrder(ctx context.Context, id string) (*model.Order, error) {
+	_, err := r.GetOrderUseCase.GetOrderById(id)
 	if err != nil {
 		return nil, err
 	}
 
-	output, err := r.DeleteOrderUseCase.Delete(*id)
+	dto, err := r.DeleteOrderUseCase.Delete(id)
 	if err != nil {
 		return nil, err
 	}
 
 	return &model.Order{
-		ID:         output.ID,
-		Price:      float64(output.Price),
-		Tax:        float64(output.Tax),
-		FinalPrice: float64(output.FinalPrice),
+		ID:         dto.ID,
+		Price:      float64(dto.Price),
+		Tax:        float64(dto.Tax),
+		FinalPrice: float64(dto.FinalPrice),
 	}, nil
 }
 
 // Orders is the resolver for the orders field.
 func (r *queryResolver) Orders(ctx context.Context) ([]*model.Order, error) {
-	orders, err := r.ListOrdersUseCase.GetOrders()
+	ordersDto, err := r.ListOrdersUseCase.GetOrders()
 	if err != nil {
 		return nil, err
 	}
 
 	var modelOrders []*model.Order
-	for _, o := range orders {
+	for _, o := range ordersDto {
 		modelOrders = append(modelOrders, &model.Order{
 			ID:         o.ID,
 			Price:      o.Price,
@@ -94,6 +94,21 @@ func (r *queryResolver) Orders(ctx context.Context) ([]*model.Order, error) {
 	}
 
 	return modelOrders, nil
+}
+
+// Order is the resolver for the order field.
+func (r *queryResolver) Order(ctx context.Context, id string) (*model.Order, error) {
+	dto, err := r.ListOrdersUseCase.GetOrderById(id)
+	if err != nil {
+		return nil, err
+	}
+
+	return &model.Order{
+		ID:         dto.ID,
+		Price:      dto.Price,
+		Tax:        dto.Tax,
+		FinalPrice: dto.FinalPrice,
+	}, nil
 }
 
 // Mutation returns MutationResolver implementation.

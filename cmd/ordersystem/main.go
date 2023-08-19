@@ -45,7 +45,9 @@ func main() {
 	defer db.Close()
 
 	rabbitMQChannel := getRabbitMQChannel()
-
+	setup(rabbitMQChannel, "created", "created")
+	setup(rabbitMQChannel, "updated", "updated")
+	setup(rabbitMQChannel, "deleted", "deleted")
 	eventDispatcher := events.NewEventDispatcher()
 	eventDispatcher.Register("OrderCreated", &handler.OrderCreatedHandler{
 		RabbitMQChannel: rabbitMQChannel,
@@ -125,4 +127,42 @@ func getRabbitMQChannel() *amqp.Channel {
 		panic(err)
 	}
 	return ch
+}
+
+func setup(rabbitMQChannel *amqp.Channel, exchange string, queue string) {
+	// With the instance and declare Exchanges that we can publish and subscribe to.
+	err := rabbitMQChannel.ExchangeDeclare(
+		exchange+"_exchange", // name
+		"fanout",             // kind
+		true,                 // durable
+		false,                // auto delete
+		false,                // internal
+		false,                // noWait
+		nil,                  // arguments - ex: amqp.Table{"alternate-exchange": "name_exchange"}
+	)
+	if err != nil {
+		panic(err)
+	}
+
+	// With the instance and declare Queues that we can publish and subscribe to.
+	_, err = rabbitMQChannel.QueueDeclare(
+		queue+"_queue", // queue name
+		true,           // durable
+		false,          // auto delete
+		false,          // exclusive
+		false,          // no wait
+		nil,            // arguments - ex: amqp.Table{"alternate-exchange": "name_exchange"}
+	)
+	if err != nil {
+		panic(err)
+	}
+
+	// With the instance declare bind between Queue and Exchange.
+	rabbitMQChannel.QueueBind(
+		queue+"_queue",       // queue name
+		"",                   // key
+		exchange+"_exchange", // exchange
+		false,                // noWait
+		nil,                  // arguments - ex: amqp.Table{"alternate-exchange": "name_exchange"}
+	)
 }
