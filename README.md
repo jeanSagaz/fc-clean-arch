@@ -20,9 +20,9 @@ mutation createOrder {
 	Price: 10.0,  
 	Tax: 1.0  
   }) {  
-    id  
-	Price  
-	Tax  
+		id  
+		Price  
+		Tax  
   }  
 }
 
@@ -32,17 +32,17 @@ mutation updateOrder {
 	Price: 2,
 	Tax: 1
   }) {
-    id
-	Price
-	Tax
+		id
+		Price
+		Tax
   }
 }
 
 mutation deleteOrder {
   deleteOrder(id: "e807d0ab-0e8a-49e1-b819-f3b77767a117") {
-    id
-	Price
-	Tax
+		id
+		Price
+		Tax
   }
 }
 
