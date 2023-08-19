@@ -8,7 +8,7 @@ docker-compose up -d
 Para rodar o projeto execute no prompt de comando na pasta raiz do projeto:  
 go run ./cmd/ordersystem/main.go ./cmd/ordersystem/wire_gen.go
 
-graphQL:
+graphQL:  
 Documentação do [graphQL](https://gqlgen.com/)  
 Comando para gerar o 'graphQL' quando alterar ou adicionar uma nova Query ou Mutation:  
 go run github.com/99designs/gqlgen generate
