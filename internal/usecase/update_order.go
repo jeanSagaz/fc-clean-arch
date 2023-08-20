@@ -1,8 +1,8 @@
 package usecase
 
 import (
-	"github.com/devfullcycle/20-CleanArch/internal/entity"
-	"github.com/devfullcycle/20-CleanArch/pkg/events"
+	"github.com/jeanSagaz/fc-clean-arch/internal/entity"
+	"github.com/jeanSagaz/fc-clean-arch/pkg/events"
 )
 
 type UpdateOrderUseCase struct {

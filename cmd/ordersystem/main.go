@@ -9,22 +9,22 @@ import (
 
 	graphql_handler "github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"
-	"github.com/devfullcycle/20-CleanArch/configs"
+	"github.com/jeanSagaz/fc-clean-arch/configs"
 
-	"github.com/devfullcycle/20-CleanArch/internal/event"
-	"github.com/devfullcycle/20-CleanArch/internal/event/handler"
+	"github.com/jeanSagaz/fc-clean-arch/internal/event"
+	"github.com/jeanSagaz/fc-clean-arch/internal/event/handler"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 
-	"github.com/devfullcycle/20-CleanArch/internal/infra/database"
-	"github.com/devfullcycle/20-CleanArch/internal/infra/graph"
-	"github.com/devfullcycle/20-CleanArch/internal/infra/grpc/pb"
-	"github.com/devfullcycle/20-CleanArch/internal/infra/grpc/service"
-	"github.com/devfullcycle/20-CleanArch/internal/infra/web"
-	"github.com/devfullcycle/20-CleanArch/internal/infra/web/webserver"
-	"github.com/devfullcycle/20-CleanArch/pkg/events"
 	"github.com/go-chi/chi/v5/middleware"
+	"github.com/jeanSagaz/fc-clean-arch/internal/infra/database"
+	"github.com/jeanSagaz/fc-clean-arch/internal/infra/graph"
+	"github.com/jeanSagaz/fc-clean-arch/internal/infra/grpc/pb"
+	"github.com/jeanSagaz/fc-clean-arch/internal/infra/grpc/service"
+	"github.com/jeanSagaz/fc-clean-arch/internal/infra/web"
+	"github.com/jeanSagaz/fc-clean-arch/internal/infra/web/webserver"
+	"github.com/jeanSagaz/fc-clean-arch/pkg/events"
 	"github.com/streadway/amqp"
 
 	// mysql

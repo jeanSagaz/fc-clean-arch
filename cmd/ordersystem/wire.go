@@ -6,12 +6,12 @@ package main
 import (
 	"database/sql"
 
-	"github.com/devfullcycle/20-CleanArch/internal/entity"
-	"github.com/devfullcycle/20-CleanArch/internal/event"
-	"github.com/devfullcycle/20-CleanArch/internal/infra/database"
-	"github.com/devfullcycle/20-CleanArch/internal/usecase"
-	"github.com/devfullcycle/20-CleanArch/pkg/events"
 	"github.com/google/wire"
+	"github.com/jeanSagaz/fc-clean-arch/internal/entity"
+	"github.com/jeanSagaz/fc-clean-arch/internal/event"
+	"github.com/jeanSagaz/fc-clean-arch/internal/infra/database"
+	"github.com/jeanSagaz/fc-clean-arch/internal/usecase"
+	"github.com/jeanSagaz/fc-clean-arch/pkg/events"
 )
 
 var setOrderRepositoryDependency = wire.NewSet(
