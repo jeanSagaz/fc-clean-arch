@@ -266,7 +266,7 @@ func (ec *executionContext) field_Mutation_createOrder_args(ctx context.Context,
 	var arg0 model.OrderInput
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNOrderInput2githubᚗcomᚋdevfullcycleᚋ20ᚑCleanArchᚋgraphᚋmodelᚐOrderInput(ctx, tmp)
+		arg0, err = ec.unmarshalNOrderInput2githubᚗcomᚋjeanSagazᚋfcᚑcleanᚑarchᚋinternalᚋinfraᚋgraphᚋmodelᚐOrderInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -296,7 +296,7 @@ func (ec *executionContext) field_Mutation_updateOrder_args(ctx context.Context,
 	var arg0 model.OrderInput
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNOrderInput2githubᚗcomᚋdevfullcycleᚋ20ᚑCleanArchᚋgraphᚋmodelᚐOrderInput(ctx, tmp)
+		arg0, err = ec.unmarshalNOrderInput2githubᚗcomᚋjeanSagazᚋfcᚑcleanᚑarchᚋinternalᚋinfraᚋgraphᚋmodelᚐOrderInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -398,7 +398,7 @@ func (ec *executionContext) _Mutation_createOrder(ctx context.Context, field gra
 	}
 	res := resTmp.(*model.Order)
 	fc.Result = res
-	return ec.marshalOOrder2ᚖgithubᚗcomᚋdevfullcycleᚋ20ᚑCleanArchᚋgraphᚋmodelᚐOrder(ctx, field.Selections, res)
+	return ec.marshalOOrder2ᚖgithubᚗcomᚋjeanSagazᚋfcᚑcleanᚑarchᚋinternalᚋinfraᚋgraphᚋmodelᚐOrder(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_createOrder(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -460,7 +460,7 @@ func (ec *executionContext) _Mutation_updateOrder(ctx context.Context, field gra
 	}
 	res := resTmp.(*model.Order)
 	fc.Result = res
-	return ec.marshalOOrder2ᚖgithubᚗcomᚋdevfullcycleᚋ20ᚑCleanArchᚋgraphᚋmodelᚐOrder(ctx, field.Selections, res)
+	return ec.marshalOOrder2ᚖgithubᚗcomᚋjeanSagazᚋfcᚑcleanᚑarchᚋinternalᚋinfraᚋgraphᚋmodelᚐOrder(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_updateOrder(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -522,7 +522,7 @@ func (ec *executionContext) _Mutation_deleteOrder(ctx context.Context, field gra
 	}
 	res := resTmp.(*model.Order)
 	fc.Result = res
-	return ec.marshalOOrder2ᚖgithubᚗcomᚋdevfullcycleᚋ20ᚑCleanArchᚋgraphᚋmodelᚐOrder(ctx, field.Selections, res)
+	return ec.marshalOOrder2ᚖgithubᚗcomᚋjeanSagazᚋfcᚑcleanᚑarchᚋinternalᚋinfraᚋgraphᚋmodelᚐOrder(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_deleteOrder(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -763,7 +763,7 @@ func (ec *executionContext) _Query_orders(ctx context.Context, field graphql.Col
 	}
 	res := resTmp.([]*model.Order)
 	fc.Result = res
-	return ec.marshalNOrder2ᚕᚖgithubᚗcomᚋdevfullcycleᚋ20ᚑCleanArchᚋgraphᚋmodelᚐOrderᚄ(ctx, field.Selections, res)
+	return ec.marshalNOrder2ᚕᚖgithubᚗcomᚋjeanSagazᚋfcᚑcleanᚑarchᚋinternalᚋinfraᚋgraphᚋmodelᚐOrderᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Query_orders(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -814,7 +814,7 @@ func (ec *executionContext) _Query_order(ctx context.Context, field graphql.Coll
 	}
 	res := resTmp.(*model.Order)
 	fc.Result = res
-	return ec.marshalOOrder2ᚖgithubᚗcomᚋdevfullcycleᚋ20ᚑCleanArchᚋgraphᚋmodelᚐOrder(ctx, field.Selections, res)
+	return ec.marshalOOrder2ᚖgithubᚗcomᚋjeanSagazᚋfcᚑcleanᚑarchᚋinternalᚋinfraᚋgraphᚋmodelᚐOrder(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Query_order(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -3350,7 +3350,7 @@ func (ec *executionContext) marshalNID2string(ctx context.Context, sel ast.Selec
 	return res
 }
 
-func (ec *executionContext) marshalNOrder2ᚕᚖgithubᚗcomᚋdevfullcycleᚋ20ᚑCleanArchᚋgraphᚋmodelᚐOrderᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Order) graphql.Marshaler {
+func (ec *executionContext) marshalNOrder2ᚕᚖgithubᚗcomᚋjeanSagazᚋfcᚑcleanᚑarchᚋinternalᚋinfraᚋgraphᚋmodelᚐOrderᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Order) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -3374,7 +3374,7 @@ func (ec *executionContext) marshalNOrder2ᚕᚖgithubᚗcomᚋdevfullcycleᚋ20
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNOrder2ᚖgithubᚗcomᚋdevfullcycleᚋ20ᚑCleanArchᚋgraphᚋmodelᚐOrder(ctx, sel, v[i])
+			ret[i] = ec.marshalNOrder2ᚖgithubᚗcomᚋjeanSagazᚋfcᚑcleanᚑarchᚋinternalᚋinfraᚋgraphᚋmodelᚐOrder(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -3394,7 +3394,7 @@ func (ec *executionContext) marshalNOrder2ᚕᚖgithubᚗcomᚋdevfullcycleᚋ20
 	return ret
 }
 
-func (ec *executionContext) marshalNOrder2ᚖgithubᚗcomᚋdevfullcycleᚋ20ᚑCleanArchᚋgraphᚋmodelᚐOrder(ctx context.Context, sel ast.SelectionSet, v *model.Order) graphql.Marshaler {
+func (ec *executionContext) marshalNOrder2ᚖgithubᚗcomᚋjeanSagazᚋfcᚑcleanᚑarchᚋinternalᚋinfraᚋgraphᚋmodelᚐOrder(ctx context.Context, sel ast.SelectionSet, v *model.Order) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
@@ -3404,7 +3404,7 @@ func (ec *executionContext) marshalNOrder2ᚖgithubᚗcomᚋdevfullcycleᚋ20ᚑ
 	return ec._Order(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalNOrderInput2githubᚗcomᚋdevfullcycleᚋ20ᚑCleanArchᚋgraphᚋmodelᚐOrderInput(ctx context.Context, v interface{}) (model.OrderInput, error) {
+func (ec *executionContext) unmarshalNOrderInput2githubᚗcomᚋjeanSagazᚋfcᚑcleanᚑarchᚋinternalᚋinfraᚋgraphᚋmodelᚐOrderInput(ctx context.Context, v interface{}) (model.OrderInput, error) {
 	res, err := ec.unmarshalInputOrderInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
@@ -3703,7 +3703,7 @@ func (ec *executionContext) marshalOBoolean2ᚖbool(ctx context.Context, sel ast
 	return res
 }
 
-func (ec *executionContext) marshalOOrder2ᚖgithubᚗcomᚋdevfullcycleᚋ20ᚑCleanArchᚋgraphᚋmodelᚐOrder(ctx context.Context, sel ast.SelectionSet, v *model.Order) graphql.Marshaler {
+func (ec *executionContext) marshalOOrder2ᚖgithubᚗcomᚋjeanSagazᚋfcᚑcleanᚑarchᚋinternalᚋinfraᚋgraphᚋmodelᚐOrder(ctx context.Context, sel ast.SelectionSet, v *model.Order) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
