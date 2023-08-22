@@ -1,7 +1,7 @@
 CREATE TABLE orders (
   id varchar(36) NOT NULL,
-  price DECIMAL(6,4) NOT NULL,
-  tax DECIMAL(6,4) NOT NULL,
-  final_price DECIMAL(6,4) NOT NULL,
-  PRIMARY KEY (id)
+  price DECIMAL(13,4) NOT NULL,
+  tax DECIMAL(13,4) NOT NULL,
+  final_price DECIMAL(13,4) NOT NULL,
+  CONSTRAINT Pk_Orders PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

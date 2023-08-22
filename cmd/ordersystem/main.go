@@ -37,12 +37,22 @@ func main() {
 		panic(err)
 	}
 
-	db, err := sql.Open(configs.DBDriver, fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", configs.DBUser, configs.DBPassword, configs.DBHost, configs.DBPort, configs.DBName))
+	db, err := sql.Open(configs.DBDriver, fmt.Sprintf("%s:%s@tcp(%s:%s)/%s",
+		configs.DBUser,
+		configs.DBPassword,
+		configs.DBHost,
+		configs.DBPort,
+		configs.DBName))
 
 	if err != nil {
 		panic(err)
 	}
 	defer db.Close()
+
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS orders (id varchar(36) NOT NULL, price DECIMAL(13,4) NOT NULL, tax DECIMAL(13,4) NOT NULL, final_price DECIMAL(13,4) NOT NULL, CONSTRAINT Pk_Orders PRIMARY KEY (id));")
+	if err != nil {
+		panic(err)
+	}
 
 	rabbitMQChannel := getRabbitMQChannel()
 	setup(rabbitMQChannel, "created", "created")

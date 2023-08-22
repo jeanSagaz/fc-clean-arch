@@ -2,6 +2,8 @@
 Se vc gostou do projeto clean-arch, por favor dêe uma estrela
 
 ## Como executar:
+O script para criação da tabela está na pasta 'docs/mysql/script.sql'
+
 Execute do docker-compose para subir o mysql e o rabbitmq:
 docker-compose up -d
 
